@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laine Market - Online Bag Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+    .search-bar {
+      margin: 20px auto;
+      max-width: 400px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    .product {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 20px;
+      background-color: green;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🛍️ Laine Market</h1>
+  <h3>Online Store for Bags & Mobiles</h3>
+
+  <!-- 🔍 Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search product... (e.g. Redmi, Bag, Offer)" onkeyup="searchProducts()">
+  </div>
+
+  <!-- 🔥 Offer Section -->
+  <div class="product" data-name="offer free discount">
+    <h2>🔥 Special Offers</h2>
+    <p>Free delivery on orders above ₹999!</p>
+    <p>₹100 discount on purchase of 2 bags!</p>
+    <p>₹500 off on Redmi Note 13 for a limited time!</p>
+    <a href="https://wa.me/9779821282061?text=I want to know more about the offer" class="btn">💬 WhatsApp for Offers</a>
+  </div>
+
+  <!-- Mobile Product -->
+  <div class="product" data-name="redmi note 13 mobile phone">
+    <h2>Redmi Note 13</h2>
+    <p>₹15,999 | 6GB RAM, 128GB Storage</p>
+    <a href="https://wa.me/9779821282061?text=I want to buy Redmi Note 13 (₹15,999 | 6GB RAM, 128GB Storage)" class="btn">📱 Order on WhatsApp</a><br>
+    <button onclick="window.location.href='tel:+9779821282061'" class="btn">📞 Call to Order</button>
+  </div>
+
+  <!-- Bag Product -->
+  <div class="product" data-name="travel bag waterproof stylish">
+    <h2>Stylish Travel Bag</h2>
+    <p>₹899 | Waterproof, Large Size</p>
+    <a href="https://wa.me/9779821282061?text=I want to buy the Travel Bag" class="btn">📱 Order on WhatsApp</a><br>
+    <button onclick="window.location.href='tel:+9779821282061'" class="btn">📞 Call to Order</button>
+  </div>
+
+  <script>
+    function searchProducts() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const products = document.querySelectorAll('.product');
+
+      products.forEach(product => {
+        const name = product.getAttribute('data-name').toLowerCase();
+        if (name.includes(input)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
